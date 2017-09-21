@@ -3,6 +3,8 @@
     <meta charset="utf-8">
 
     <title>Fun with APIs</title>
+
+
     <link rel="stylesheet" href="assets/css/style.css?v=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -14,17 +16,30 @@
 </head>
 
 <body>
-    <form id="artist-form" class = "form">
-        <label for="artist-input">Pick an artist, any artist</label>
-        <input id="artist-input" type="text">
-        <input id="addArtist" type="submit" value="Submit">
-    </form>
 
-    <div id="artistButtons" class="jumbotron"></div>
-
-    <div id="artist-view" class = "well">
-
+<div class= "container">
+    <div class="row" id="headline">
+        <h1>The world's greatest random gif generator</h1>
     </div>
+    <div class="form-group">
+        <form id="artist-form" class = "form-group">
+            <label for="artist-input">Pick an artist, any artist</label>
+            <input id="artist-input" type="text">
+            <input id="addArtist" type="submit" value="Submit">
+        </form>
+    </div>
+
+    <div class="jumbotron" id="artistButtons">
+    </div>
+
+    <div>
+        <div id="artist-view" class="well"></div>
+    </div>
+</div>
+
+
+
+
 </body>
 
 </html>
