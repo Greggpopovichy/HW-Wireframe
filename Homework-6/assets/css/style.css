@@ -1,5 +1,20 @@
+.container{
+    background-color: ;
+    font-family: Helvetica;
+}
+
 #headline{
     margin-bottom: 10px;
+    text-align: center;
+}
+
+h1{
+    font-weight: bold;
+}
+
+.form-group{
+    display: block;
+    text-align: center;
 }
 
 
