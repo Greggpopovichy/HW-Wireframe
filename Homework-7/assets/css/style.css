@@ -1,0 +1,14 @@
+.panel-heading{
+    margin-bottom: 15px;
+}
+h1{
+    text-align: center;
+}
+.top{
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.jumbotron{
+    background-color:transparent !important;
+}
