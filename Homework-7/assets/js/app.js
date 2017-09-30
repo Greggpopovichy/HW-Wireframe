@@ -66,42 +66,28 @@ database.ref().on("child_added", function(childSnapshot) {
         " </td><td>" + minAway + "</td></tr>");
 
 
-    /*var trainNames = getAllTrainNames();
-    trainNames.forEach(function(trainName){
-        var lastArrivalTime = getLastArrivalTime(trainName);
-        if(lastArrivalTime < moment()) {
-            //jquery to update next arrival column for that train (aka lastArrivalTime + frequency)
-            lastArrivalTime = moment();
-        } else {
-            //do nothing because lastArrivalTime is still accurate
-        }
-        setLastArrivalTime(trainName, lastArrivalTime);
-    });*/
 
-    // nextArrival = moment.unix(time).format("hh/mm/ss");
 
-    // var empStartPretty = moment.unix(empStart).format("MM/DD/YY");
-    //
-    // // Calculate the months worked using hardcore math
-    // // To calculate the months worked
-    // var empMonths = moment().diff(moment.unix(empStart, "X"), "months");
-    // console.log(empMonths);
-    //
-    // // Calculate the total billed rate
-    // var empBilled = empMonths * empRate;
-    // console.log(empBilled);
-    //
-    // // Add each train's data into the table
-    // $("#employee-table > tbody").append("<tr><td>" + empName + "</td><td>" + empRole + "</td><td>" +
-    //     empStartPretty + "</td><td>" + empMonths + "</td><td>" + empRate + "</td><td>" + empBilled + "</td></tr>");
 }, function(errorObject) {
     console.log("Errors handled: " + errorObject.code);
 });
 //---------------------------------------------------------------------------------
 
+//Random Experimenting
 
+/*var trainNames = getAllTrainNames();
+  trainNames.forEach(function(trainName){
+      var lastArrivalTime = getLastArrivalTime(trainName);
+      if(lastArrivalTime < moment()) {
+          //jquery to update next arrival column for that train (aka lastArrivalTime + frequency)
+          lastArrivalTime = moment();
+      } else {
+          //do nothing because lastArrivalTime is still accurate
+      }
+      setLastArrivalTime(trainName, lastArrivalTime);
+  });*/
 
-
+// nextArrival = moment.unix(time).format("hh/mm/ss");
 
 
 
