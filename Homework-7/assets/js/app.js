@@ -13,7 +13,7 @@ firebase.initializeApp(config);
 var name = "";
 var destination = "";
 var time = 0;
-var frequency = "";
+var frequency = 0;
 var database = firebase.database();
 
 // Capture Button Click
@@ -32,23 +32,38 @@ $("#add-train").on("click", function(event) {
         time: time,
         frequency: frequency
     });
+
+    $("#name-input").val("");
+    $("#destination-input").val("");
+    $("#time-input").val("");
+    $("#frequency-input").val("");
 });
 
 database.ref().on("child_added", function(childSnapshot) {
 
     console.log(childSnapshot.val().name);
     console.log(childSnapshot.val().destination);
-    console.log(childSnapshot.val().time);
-    console.log(childSnapshot.val().frequency);
+
+    // var trainName = childSnapshot.val().name;
+    // var trainDestination = childSnapshot.val().destination;
+    var firstTrainArrival = childSnapshot.val().time;
+    var trainFreq = childSnapshot.val().frequency;
+    var currentTime = moment().format("HH:MM:SS");
+    var firstTrainArrivalConverted = moment(firstTrainArrival).format("HH:MM:SS");
+    var trainFreqConverted = moment().format(trainFreq, "m");
+     console.log(trainFreqConverted);
+    //
+    var nextTrainArrival = moment().add(firstTrainArrivalConverted, trainFreqConverted);
+    var minAway = nextTrainArrival.diff(currentTime, "minutes");
+    //var minAway = moment().subtract(nextTrainArrival, currentTime).format("m");
+    console.log(minAway);
 
 
     $("#updated-schedule").append("<tr><td id='name'> " + childSnapshot.val().name +
         " </td><td id='destination'> " + childSnapshot.val().destination +
         " </td><td id='time'> " + childSnapshot.val().time +
         " </td><td id='frequency'> " + childSnapshot.val().frequency +
-        " </td></tr>");
-
-
+        " </td><td>" + minAway + "</td></tr>");
 
 
     /*var trainNames = getAllTrainNames();
@@ -63,20 +78,34 @@ database.ref().on("child_added", function(childSnapshot) {
         setLastArrivalTime(trainName, lastArrivalTime);
     });*/
 
+    // nextArrival = moment.unix(time).format("hh/mm/ss");
 
+    // var empStartPretty = moment.unix(empStart).format("MM/DD/YY");
+    //
+    // // Calculate the months worked using hardcore math
+    // // To calculate the months worked
+    // var empMonths = moment().diff(moment.unix(empStart, "X"), "months");
+    // console.log(empMonths);
+    //
+    // // Calculate the total billed rate
+    // var empBilled = empMonths * empRate;
+    // console.log(empBilled);
+    //
+    // // Add each train's data into the table
+    // $("#employee-table > tbody").append("<tr><td>" + empName + "</td><td>" + empRole + "</td><td>" +
+    //     empStartPretty + "</td><td>" + empMonths + "</td><td>" + empRate + "</td><td>" + empBilled + "</td></tr>");
 }, function(errorObject) {
     console.log("Errors handled: " + errorObject.code);
 });
 //---------------------------------------------------------------------------------
+
+
+
+
+
+
+
 /*
-//receive input for next train time from user.
-var currentTime = moment().format("HH");
-var timeInput =
-var result =
-
-$("")
-
-
 next arrival-
 
 var trainsInMemory = [

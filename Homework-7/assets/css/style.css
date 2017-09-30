@@ -1,6 +1,12 @@
 .panel-heading{
     margin-bottom: 15px;
 }
+.form-group{
+    width: 95%;
+}
+.btn{
+    margin-left:15px;
+}
 h1{
     text-align: center;
 }
@@ -11,4 +17,9 @@ h1{
 
 .jumbotron{
     background-color:transparent !important;
+}
+
+.wrapper{
+    height: 100%;
+    width: 100%
 }
